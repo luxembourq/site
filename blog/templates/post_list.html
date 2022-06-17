@@ -1,0 +1,551 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Grayscale - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="./../static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="./../static/css/styles.css" rel="stylesheet" />
+        <script src="./../static/js/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body id="page-top"; onload="get_element()">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a style="font-size: 36px;" class="navbar-brand font-face" href="#page-top">AniAnime</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul style="font-size: 28px;" class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about">Анонси</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Тайтли</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">Контакти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase font-face">AniAnime</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Зручний сервіс коментування та відгуків до ваших улюблених аніме</h2>
+                        <a class="btn btn-primary" href="#projects">Почати</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <!-- <section class="about-section text-center" id="about">
+            <div class="container px-0 px-lg-1">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4">Built with Bootstrap 5</h2>
+                        <p class="text-white-50">
+                            Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
+                            <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a>
+                            The theme is open source, and you can use it for any purpose, personal or commercial.
+                        </p>
+                    </div>
+                </div>
+                <img class="img-fluid" src="./../static/assets/img/ipad.png" alt="..." />
+            </div>
+        </section> -->
+        <!-- Projects-->
+        <section class="about-section text-center" id="about">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <h1 class="text-white mb-4">Анонси</h1>
+                            {% block content %}
+                                    {% for post in posts %}
+                                        <div class="post">
+                                            <h3><a href="">{{ post.title }}</a></h3>
+                                            <p>{{ post.text|linebreaksbr }}</p>
+                                        </div>
+                                    {% endfor %}
+                            {% endblock %}
+                        </p>
+                </div>
+                <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
+            </div>
+        
+        
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    
+    .content {
+      position: relative;
+      width: 90%;
+      max-width: 53%;
+      margin: auto;
+      overflow: hidden;
+    }
+    
+    .content .content-overlay {
+      background: rgba(0,0,0,0.7);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      -webkit-transition: all 0.4s ease-in-out 0s;
+      -moz-transition: all 0.4s ease-in-out 0s;
+      transition: all 0.4s ease-in-out 0s;
+    }
+    
+    .content:hover .content-overlay{
+      opacity: 1;
+    }
+    
+    .content-image{
+      width: 100%;
+    }
+    
+    .content-details {
+      position: absolute;
+      text-align: center;
+      padding-left: 1em;
+      padding-right: 1em;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      -moz-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+    }
+    
+    .content:hover .content-details{
+      top: 50%;
+      left: 50%;
+      opacity: 1;
+    }
+    
+    .content-details h3{
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+    }
+    
+    .content-details p{
+      color: #fff;
+      font-size: 0.8em;
+    }
+    
+    .fadeIn-bottom{
+      top: 80%;
+    }
+    
+    .fadeIn-top{
+      top: 20%;
+    }
+    
+    .fadeIn-left{
+      left: 20%;
+    }
+    
+    .fadeIn-right{
+      left: 80%;
+    }
+    </style>
+
+        <section class="projects-section bg-light" id="projects">
+            <div style="margin-right: 0%; margin-left: 30%;" class="">
+                <!-- Featured Project Row-->
+                <div style="height: 100%;" class="row gx-0 mb-4 mb-lg-5 align-items-top">
+                    <div style="flex: 0 0 auto; width: 40%" class="">
+                        <div class="container">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <img class="content-image" src="./../static/assets/img/naruto.jpg">
+                                <div class="content-details fadeIn-left">
+                                  <h3>Наруто</h3>
+                                  <p style="font-size: 20px;">Це історія, в якій розповідається про хлопчика-ніндзя. Він мріє стати Хокаге: головою свого села. Але Хокаге - це наймудріший і найсильніший ніндзя села, тому хлопець спробує подолати купу випробувань, перемогти безліч противників, заслужити на повагу, підрости морально і фізично.</p>
+                                </div>
+                              </a>
+                            </div>
+                          </div></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-top text-lg-left">                        
+                        <div>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-7 col-auto">
+                                            <div id="comnaruto" style="width: 70%; height: 770px; padding-top: 5px;" class="overflow-auto">
+                                                <h1>Коментарі</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div style="height: 100%;" class="row gx-0 mb-4 mb-lg-5 align-items-top">
+                    <div style="flex: 0 0 auto; width: 40%" class="">
+                        <div class="container">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <img class="content-image" src="./../static/assets/img/note.jpg">
+                                <div class="content-details fadeIn-left">
+                                  <h3>Зошит смерті</h3>
+                                  <p style="font-size: 20px;">Втомлений від погіршення світу і від небагатослівних побратимів, синігами Рюук відправляє на Землю Зошит Смерті, спостерігаючи за тим, що цікаве з цього вийде. Його план починає виконуватися, коли Зошит Смерті піднімає геніальний учень старшої школи Лайт Ягамі, якому так само набриднув навколишній світ. </p>
+                                </div>
+                              </a>
+                            </div>
+                          </div></div>
+                          <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-top text-lg-left">                        
+                        <div>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-7 col-auto">
+                                            <div id="comnote" style="width: 70%; height: 770px;" class="overflow-auto">
+                                                <h1>Коментарі</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div style="height: 100%;" class="row gx-0 mb-4 mb-lg-5 align-items-top">
+                    <div style="flex: 0 0 auto; width: 40%" class="">
+                        <div class="container">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <img class="content-image" src="./../static/assets/img/eva.jpg">
+                                <div class="content-details fadeIn-left">
+                                  <h3>Євангеліон</h3>
+                                  <p style="font-size: 20px;">Події відбуваються через 15 років після невідомої масштабної катастрофи, внаслідок якої люди перебували на межі виживання. Але на тих, хто вцілів, чекають випробування куди страшніше… Земля піддається нападу величезних невідомих істот, які з'явилися незрозуміло звідки – «Ангелів». Єдиною зброєю планети, яка здатна їх зупинити, є роботи "Євангеліон" – розроблені за допомогою нових технологій.</p>
+                                </div>
+                              </a>
+                            </div>
+                          </div></div>
+                          <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-top text-lg-left">                        
+                        <div>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-7 col-auto">
+                                            <div id="comeva" style="width: 70%; height: 770px;" class="overflow-auto">
+                                                <h1>Коментарі</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div style="height: 100%;" class="row gx-0 mb-4 mb-lg-5 align-items-top">
+                    <div style="flex: 0 0 auto; width: 40%" class="">
+                        <div class="container">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <img class="content-image" src="./../static/assets/img/punch.jpg">
+                                <div class="content-details fadeIn-left">
+                                  <h3>Ванпанчмен</h3>
+                                  <p style="font-size: 20px;">Ця історія розповідає про юнака Саїтама, якому доводиться жити у світі, так іронічно схожому на наш. Йому 20 років. Він лисий та прекрасний. А, ну так, до того ж, головний герой настільки сильний, що з одного удару анігілює всі небезпеки для людства. Ця історія комедійна, але за всієї своєї комічності, драматична. До того ж, у ній багато їжі для роздумів. Вона позитивна, відрізняється розумом та кмітливістю.</p>
+                                </div>
+                              </a>
+                            </div>
+                          </div></div>
+                          <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-top text-lg-left">                        
+                        <div>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-7 col-auto">
+                                            <div id="compunch" style="width: 70%; height: 770px;" class="overflow-auto">
+                                                <h1>Коментарі</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div style="height: 100%;" class="row gx-0 mb-4 mb-lg-5 align-items-top">
+                    <div style="flex: 0 0 auto; width: 40%" class="">
+                        <div class="container">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <img class="content-image" src="./../static/assets/img/atack.jpg">
+                                <div class="content-details fadeIn-left">
+                                  <h3>Атака титанів</h3>
+                                  <p style="font-size: 20px;">Захід сонця людської ери прийшов з виникненням особливої ​​раси Титанів. Люди за століття так і не знайшли способів їхнього повного знищення, як і не змогли дізнатися про походження цих колосів. Залишки людської цивілізації створили державу, яка надійно захищена трьома стінами, побудованими за системою кругових кілець, з іменами: «Марія», «Роза», «Шина».</p>
+                                </div>
+                              </a>
+                            </div>
+                          </div></div>
+                          <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-top text-lg-left">                        
+                        <div>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-7 col-auto">
+                                            <div id="comatack" style="width: 70%; height: 770px;" class="overflow-auto">
+                                                <h1>Коментарі</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div style="margin-right: 0%; margin-left: 12%;" class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                    <form id="nform">
+                        <div class="form-group">
+                            <h4>Ваш коментар</h4>  <textarea type="text" name="msg" id="msg" msg cols="30" rows="5" class="form-control" style="background-color: rgb(255, 255, 255);"></textarea>
+                        </div>
+                        <div class="form-group"> <label for="name">Ім'я</label> <input type="text" name="name" id="fullname" class="form-control"> </div>
+                        <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" id="email" class="form-control"> </div>
+                        <div class="form-group"> <label for="email">Оберіть аніме:</label> <select class="form-select" id="anime" aria-label="Default select example">
+                            <option value="0"></option>
+                            <option value="Наруто">Наруто</option>
+                            <option value="Зошит">Зошит смерті</option>
+                            <option value="Євангеліон">Євангеліон</option>
+                            <option value="Ванпанчмен">Ванпанчмен</option>
+                            <option value="Атака">Атака титанів</option>
+                          </select>
+                        </div>
+                        <div style="padding-left: 30%;" class="form-group"> <button onclick="add_element()" type="button" id="post" class="btn">Залишити коментар</button> </div>
+                    </form>
+                </div>
+                <script>
+
+                    // var parent1 = document.getElementById('comnaruto');
+                    // var parent2 = document.getElementById('comnote');
+                    // var parent3 = document.getElementById('comeva');
+                    // var parent4 = document.getElementById('compunch');
+                    // var parent5 = document.getElementById('comatack');
+
+                    function add_element(){
+                    var nick = document.createElement('h4');
+                    nick.innerHTML = document.getElementById('fullname').value;
+                    var today = new Date();
+                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                    var time = today.getHours() + ":" + today.getMinutes();
+                    var dateTime = date+' '+time;
+                    var elemdiv = document.createElement('p');
+                    elemdiv.innerHTML = document.getElementById('msg').value;
+                    if(document.getElementById('anime').value == 'Наруто'){
+                        comnaruto.append(nick);
+                        comnaruto.append(dateTime);
+                        comnaruto.append(elemdiv);        
+                    } else if(document.getElementById('anime').value == 'Зошит'){
+                        comnote.append(nick);
+                        comnote.append(dateTime);
+                        comnote.append(elemdiv);
+                    } else if(document.getElementById('anime').value == 'Євангеліон'){
+                        comeva.append(nick);
+                        comeva.append(dateTime);
+                        comeva.append(elemdiv);
+                    } else if(document.getElementById('anime').value == 'Ванпанчмен'){
+                        compunch.append(nick);
+                        compunch.append(dateTime);
+                        compunch.append(elemdiv);
+                    } else if(document.getElementById('anime').value == 'Атака'){
+                        comatack.append(nick);
+                        comatack.append(dateTime);
+                        comatack.append(elemdiv);
+                    }
+                    else{
+                        alert('Ви не обрали жодне з аніме!')
+                    }
+                    save_element();
+
+                    function save_element(){
+                        const parsed1 = comnaruto.innerHTML;
+                        localStorage.setItem('naruto', parsed1);
+
+                        const parsed2 = comnote.innerHTML;
+                        localStorage.setItem('note', parsed2);
+
+                        const parsed3 = comeva.innerHTML;
+                        localStorage.setItem('eva', parsed3);
+
+                        const parsed4 = compunch.innerHTML;
+                        localStorage.setItem('punch', parsed4);
+
+                        const parsed5 = comatack.innerHTML;
+                        localStorage.setItem('atack', parsed5);
+                        
+                    }
+                    }
+                    function get_element() {
+                        comnaruto.innerHTML = localStorage.getItem('naruto');
+                        comnote.innerHTML = localStorage.getItem('note');
+                        comeva.innerHTML = localStorage.getItem('eva');
+                        compunch.innerHTML = localStorage.getItem('punch');
+                        comatack.innerHTML = localStorage.getItem('atack');
+                    }
+                    
+                </script>
+                <!-- Project One Row-->
+                <!-- <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="./../static/assets/img/demo-image-01.jpg" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Misty</h4>
+                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 Project Two Row
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="./../static/assets/img/demo-image-02.jpg" alt="..." /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Mountains</h4>
+                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <!-- Signup-->
+        <section class="signup-section" id="signup">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white mb-5">Підписка на оновлення!</h2>
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Email address input-->
+                            <div class="row input-group-newsletter">
+                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="example@email.com" aria-label="Enter email address..." data-sb-validations="required,email" /></div>
+                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Підписатись!</button></div>
+                            </div>
+                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Потрібен email.</div>
+                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email не вірний.</div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3 mt-2 text-white">
+                                    <div class="fw-bolder">Форма надіслана!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Помилка надсилання!</div></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact-->
+        <section class="contact-section bg-black">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Адрес</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">Площа митна 42</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"><a href="#!">example@email.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Телефон</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">+380 (098) 999-8888</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social d-flex justify-content-center">
+                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; 2021</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="./../static/js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
